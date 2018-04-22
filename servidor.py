@@ -1,6 +1,6 @@
 import MySQLdb
 
-import time
+import datetime
 import os, sys
 import traceback
 import socket
@@ -105,10 +105,12 @@ def recebe_mensagem_do_cliente(cliente, endereco):
             if not mensagem:
                 raise error('Erro de comunicacao')
             
+            start_time = datetime.datetime.now()
             if mensagem.tipo_operacao == 0:
                 
                 for aluno in mensagem.aluno:
                     sql = 'INSERT INTO Aluno (matriculado, nome, idade, matricula, curso, semestre, campus) VALUES ('+ str(aluno.matriculado) + ', "' + str(aluno.nome) + '", ' + str(aluno.idade) + ', ' + str(aluno.matricula) + ', "' + str(aluno.curso) + '", ' + str(aluno.semestre) + ', ' + str(aluno.campus) +');'
+                    
                     
                     result = cursor.execute(sql)
                     db.commit()
@@ -123,7 +125,11 @@ def recebe_mensagem_do_cliente(cliente, endereco):
                 for aluno in mensagem.aluno:
                     delete(db, cursor, aluno)
             
-            send_message(cliente, mensagem)
+            end_time = datetime.datetime.now()
+            time_delta = end_time - start_time
+            print 'Start time: ' + str(start_time)
+            print 'End time: ' + str(end_time)
+            print 'Time delta: ' + str(time_delta)
             
             db.close()
         except (SocketReadError):

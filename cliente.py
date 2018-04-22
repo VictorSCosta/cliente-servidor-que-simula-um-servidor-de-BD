@@ -43,12 +43,6 @@ if __name__ == "__main__":
         except:
             traceback.print_exc()
         
-    send_message(sock, mensagem)
-    recebe_mensagem = recv_message(sock)
-    if recebe_mensagem:
-        mensagem.ParseFromString(recebe_mensagem)
-        #logging.info("[received] sender name: %s, receiver name: %s, message type: %s and thread ID: %s", mensagem.sender_name, mensagem.receiver_name, mensagem_pb2.Mensagem.Msg_type.Name(mensagem.msg_type), str(mensagem.thread_id))
-    else:
-        logging.info("ERRO ao receber mensagens")    
+    send_message(sock, mensagem)  
     sock.close()
 
