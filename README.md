@@ -47,22 +47,25 @@ The way the delete and select operations works is:
 > the server searches the information on the message in the following order: 
 
 	Matriculado > Nome > Idade > Matricula > Curso > Semestre > Campus
+	
 > the server uses the first info it finds in that order to delete or retrieve the "Alunos"
+
 
 For this to work you need to change lines 33 to 39 in "cliente.py"
 
-aluno.nome = names.get_full_name()
-aluno.matriculado = randint(0,1)
-aluno.idade = randint(15,100)
-aluno.matricula = int(''.join([choice(digits) for n in xrange(9)]))
-aluno.curso = ''.join([choice(ascii_letters + digits) for n in xrange(5)])
-aluno.semestre = randint(1,20)
-aluno.campus = randint(1,4)
+	aluno.nome = names.get_full_name()
+	aluno.matriculado = randint(0,1)
+	aluno.idade = randint(15,100)
+	aluno.matricula = int(''.join([choice(digits) for n in xrange(9)]))
+	aluno.curso = ''.join([choice(ascii_letters + digits) for n in xrange(5)])
+	aluno.semestre = randint(1,20)
+	aluno.campus = randint(1,4)
 
 and leave only the field you want to search for, setting its value.
 
 Example:
 if you leave only the field "idade" and set value 20
-"aluno.idade = 20"
+	
+	"aluno.idade = 20"
 the server will retrieve or delete(depending on what you set in line 29) all the "alunos" that are 20 years old.
 
