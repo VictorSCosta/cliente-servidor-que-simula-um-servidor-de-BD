@@ -46,8 +46,11 @@ def select(cursor, aluno):
     elif aluno.HasField('semestre'):
         sql += 'semestre = '+str(aluno.semestre)+';'
         
-    elif aluno.hasField('campus'):
+    elif aluno.HasField('campus'):
         sql += 'campus = '+str(aluno.campus)+';'
+        
+    else:
+        sql = 'SELECT * FROM Aluno;'
     
     cursor.execute(sql)
     print 'Executed: '+sql
@@ -77,7 +80,7 @@ def delete(db, cursor, aluno):
     elif aluno.HasField('semestre'):
         sql += 'semestre = '+str(aluno.semestre)+';'
         
-    elif aluno.hasField('campus'):
+    elif aluno.HasField('campus'):
         sql += 'campus = '+str(aluno.campus)+';'
     
     try:
