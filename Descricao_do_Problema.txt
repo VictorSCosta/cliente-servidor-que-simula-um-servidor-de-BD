@@ -1,0 +1,5 @@
+Banco de dados de registro de alunos contendo todos os dados relevantes sobre o mesmo.
+ex: nome, matricula, idade, curso, semestre, se esta matriculado ou não etc.
+
+Ideia de funcionamento:
+O Cliente envia para o servidor os dados do aluno que deseja salvar/deletar/editar e o servidor interage com o banco de dados.

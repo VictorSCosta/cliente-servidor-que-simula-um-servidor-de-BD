@@ -1,0 +1,36 @@
+syntax="proto2";
+message Mensagem{
+	enum Tipo_operacao{
+		INSERT = 0;
+		SELECT = 1;
+		DELETE = 2;
+	}
+	
+	message Aluno {
+		enum Matriculado{
+			NAO = 0;
+			SIM = 1;	
+		}
+
+		enum Campus{
+			NULL = 0;
+			BAGE = 1;		
+			ALEGRETE = 2;
+			SAO_GABRIEL = 3;
+			URUGUAIANA = 4;
+			LIVRAMENTO = 5;
+		}
+
+		optional Matriculado matriculado = 1 [default = SIM];
+		optional string nome = 2;
+		optional int32 idade = 3;
+		optional int32 matricula = 4;
+		optional string curso = 5;
+		optional int32 semestre = 6 [default = 0];
+		optional Campus campus = 7 [default = BAGE];	
+	}
+	
+	optional Tipo_operacao tipo_operacao = 1;
+	repeated Aluno aluno = 2;
+}
+
