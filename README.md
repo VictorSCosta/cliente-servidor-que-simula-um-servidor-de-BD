@@ -21,20 +21,20 @@
 
 # INSTRUCTIONS
 
-# INSERT
+## INSERT
 By default the client.py is setup to send a message to the server with instructions to insert 100 random generated "Alunos";
 You can change this number to whatever you wish at "cliente.py" in line 29
 	
 	"for i in range(100):"
 
-# SELECT
+## SELECT
 If you wish to select "alunos" from the database change the number on line 29 to 1 and change line 28 from
 
 	"mensagem.tipo_operacao = 0"
 	to
 	"mensagem.tipo_operacao = 1"
 
-# DELETE
+## DELETE
 If you wish to delete "alunos" from the database change the number on line 29 to 1 and change line 28 from
 
 	"mensagem.tipo_operacao = 0"
@@ -61,7 +61,8 @@ For this to work you need to change lines 33 to 39 in "cliente.py"
 	aluno.semestre = randint(1,20)
 	aluno.campus = randint(1,4)
 
-and leave only the field you want to search for, setting its value.
+and leave only the field you want to search for, setting its value,
+if no information is sent, the server will retrieve all the "alunos".
 
 Example:
 if you leave only the field "idade" and set value 20
