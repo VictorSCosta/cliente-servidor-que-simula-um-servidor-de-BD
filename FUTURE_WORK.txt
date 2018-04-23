@@ -1,0 +1,3 @@
+Permitir a escolha da entrada de dados na linha de comandos do cliente;
+
+Programar a função de editar.
